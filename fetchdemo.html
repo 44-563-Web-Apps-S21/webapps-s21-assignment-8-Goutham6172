@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Compute</title>
+<script>
+function compute(){
+    
+    fetch(`http://127.0.0.1:3001/?x=${document.getElementById('input1').value}&y=${document.getElementById('input2').value}`).then(
+   (resp) => { return resp.text()}).then ((text) => { 
+            console.log(text)
+            document.getElementById("resp").innerHTML = (text);
+       });
+
+}
+</script>
+</head>
+<body>
+    <input type="number" name="input1" id="input1">
+    <input type="number" name="input2" id="input2">
+    <button onclick="compute()">Remote Compute</button>
+    <div id="resp">
+        Result will be displayed here
+    </div>
+</body>
+</html>
